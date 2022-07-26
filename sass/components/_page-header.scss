@@ -5,38 +5,36 @@
 .page-header__nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
     font-family: 'Raleway';
-    font-size: 26px;
-    line-height: 1.19;
+    font-size: 24px;
+    line-height: 1.17;
     color: var(--accent-color);
+
+    @media screen and (min-width: 1200px) {
+        font-size: 26px;
+        line-height: 1.19;
+    }
 }
 
 .page-header__logo {
     color: var(--logo-color);
 }
 
-.page-header__list {
-    display: flex;
-    margin-left: 93px;
-}
-
-.page-header__item:not(:last-child) {
-    margin-right: 50px;
-}
-
-.page-header__link {
-    position: relative;
-    display: block;
-    padding-top: 32px;
-    padding-bottom: 32px;
-
-    font-weight: 500;
-    line-height: 1.14;
-    letter-spacing: 0.02em;
+.page-header__btn {
+    display: inline-block;
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     color: var(--primary-text-color);
+    background: var(--primary-white-color);
+    border: none;
+    cursor: pointer;
 
     transition-property: color;
     transition-duration: 250ms;
@@ -47,11 +45,59 @@
         color: var(--accent-color);
     }
 
-    &--current {
-        color: var(--accent-color);
+    @media screen and (min-width: 768px) {
+        display: none;
     }
+}
 
-    &--current::after {
+.page-header__icon {
+    fill: currentColor;
+}
+
+.page-header__list {
+    display: none;
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        margin-left: 88px;
+    }
+    @media screen and (min-width: 1200px) {
+        margin-left: 93px;
+    }
+}
+
+.page-header__item:not(:last-child) {
+    @media screen and (min-width: 768px) {
+    margin-right: 50px;
+    }
+}
+
+.page-header__link {
+    @media screen and (min-width: 768px) {
+        position: relative;
+        display: block;
+        padding-top: 32px;
+        padding-bottom: 32px;
+
+        font-weight: 500;
+        line-height: 1.14;
+        letter-spacing: 0.02em;
+        color: var(--primary-text-color);
+
+        transition-property: color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover,
+        &:focus {
+        color: var(--accent-color);
+        }
+
+        &--current {
+        color: var(--accent-color);
+        }
+
+        &--current::after {
         display: block;
         content: '';
         position: absolute;
@@ -61,43 +107,53 @@
         height: 4px;
         border-radius: 2px;
         background-color: var(--accent-color);
+        }
     }
 }
 
 .page-header__contact {
-    display: flex;
-    margin-left: auto;
-}
+    display: none;
 
-.page-header__contact-item:not(:last-child) {
-    margin-right: 50px;
-}
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+    }
 
-.contact-link {
-    display: flex;
-    align-items: center;
-    padding-top: 32px;
-    padding-bottom: 32px;
-
-    font-weight: 500;
-    line-height: 16px;
-    letter-spacing: 0.02em;
-    color: var(--text-color);
-
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-    &:hover,
-    &:focus {
-        color: var(--accent-color);
+    @media screen and (min-width: 1200px) {
+        flex-direction: row;
+        margin-left: auto;
     }
 }
 
-.contact-link__text {
-    margin-left: 10px;
-}
+// .page-header__contact-item:not(:last-child) {
+//     margin-right: 50px;
+// }
 
-.contact-link__icon {
-    fill: currentColor;
-}
+// .contact-link {
+//     display: flex;
+//     align-items: center;
+//     padding-top: 32px;
+//     padding-bottom: 32px;
+
+//     font-weight: 500;
+//     line-height: 16px;
+//     letter-spacing: 0.02em;
+//     color: var(--text-color);
+
+//     transition-property: color;
+//     transition-duration: 250ms;
+//     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+//     &:hover,
+//     &:focus {
+//         color: var(--accent-color);
+//     }
+// }
+
+// .contact-link__text {
+//     margin-left: 10px;
+// }
+
+// .contact-link__icon {
+//     fill: currentColor;
+// }
