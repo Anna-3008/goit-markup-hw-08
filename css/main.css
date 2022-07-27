@@ -755,7 +755,14 @@ body {
 }
 
 .portfolio__link {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
   -webkit-transition-property: -webkit-box-shadow;
   transition-property: -webkit-box-shadow;
   transition-property: box-shadow;
@@ -776,6 +783,9 @@ body {
   border-bottom: 1px solid var(--portfolio-border-card);
   border-right: 1px solid var(--portfolio-border-card);
   padding: 20px 24px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .portfolio__title {
@@ -1187,26 +1197,18 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-
 .form-field + .form-field {
   margin-top: 10px;
 }
-
 .form-field span {
   position: relative;
 }
-
 .form-field label {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
   color: var(--text-color);
 }
-
-.color-icon {
-  color: var(--primary-text-color);
-}
-
 .form-field input {
   width: 100%;
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -1223,6 +1225,54 @@ body {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.form-field input:focus {
+  outline: none;
+  border: 1px solid var(--accent-color);
+}
+.form-field input:focus ~ .modal-icon {
+  color: var(--accent-color);
+}
+.form-field textarea {
+  padding: 12px 16px;
+}
+.form-field textarea::-webkit-input-placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+.form-field textarea::-moz-placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+.form-field textarea:-ms-input-placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+.form-field textarea::-ms-input-placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+.form-field textarea::placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+.form-field textarea:focus {
+  outline: none;
+  border: 1px solid var(--accent-color);
+}
+
+.color-icon {
+  color: var(--primary-text-color);
+}
 
 .modal-icon {
   position: absolute;
@@ -1232,54 +1282,6 @@ body {
           transform: translateY(-50%);
   display: inline-block;
   fill: currentColor;
-}
-
-.form-field input:focus {
-  outline: none;
-  border: 1px solid var(--accent-color);
-}
-
-.form-field input:focus ~ .modal-icon {
-  color: var(--accent-color);
-}
-
-.form-field textarea {
-  padding: 12px 16px;
-}
-
-.form-field textarea::-webkit-input-placeholder {
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5);
-}
-
-.form-field textarea::-moz-placeholder {
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5);
-}
-
-.form-field textarea:-ms-input-placeholder {
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5);
-}
-
-.form-field textarea::-ms-input-placeholder {
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5);
-}
-
-.form-field textarea::placeholder {
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5);
 }
 
 .modal-textarea {
@@ -1305,7 +1307,6 @@ body {
           align-items: center;
   margin-top: 20px;
 }
-
 .checkbox input {
   position: absolute;
   width: 1px;
@@ -1319,7 +1320,6 @@ body {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-
 .checkbox input:checked + .checkbox-icon {
   border-radius: 2px;
   background-color: var(--accent-color);
@@ -1329,11 +1329,9 @@ body {
   background-origin: border-box;
   fill: var(--accent-color);
 }
-
 .checkbox input:focus + .checkbox-icon {
   border-color: var(--accent-color);
 }
-
 .checkbox label {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1522,7 +1520,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 
 .menu-social__link {
@@ -1531,4 +1529,8 @@ body {
   line-height: 1.22;
   letter-spacing: 0.02em;
   color: var(--accent-color);
+}
+.menu-social__item:not(:last-child) .menu-social__link {
+  padding-right: 10px;
+  border-right: 1px solid rgba(33, 33, 33, 0.2);
 }/*# sourceMappingURL=main.css.map */
